@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/style.css">
-  <script src="./js/main.js"></script>
+  <script src="./js/main.js" defer></script>
   <title>Store</title>
 </head>
 
 <body>
   <section class="page-siza onboarding">
     <img src="./img/Untitled1.webp">
-    <a href="#">Get Started</a>
+    <a onclick="getstarted(event)">Get Started</a>
 
   </section>
   <section class="page-siza home">
@@ -39,8 +39,8 @@
         This Diwali</p>
     </div>
     <div class="search">
-      <input type="text" placeholder="search Diwali lamps">
-      <button id="search-button"><svg xmlns="http://www.w3.org/2000/svg" width="21.97" height="21.97"
+      <input type="text" id="search-input" placeholder="search Diwali lamps">
+      <button id="search-button" onclick="search()"><svg xmlns="http://www.w3.org/2000/svg" width="21.97" height="21.97"
           viewBox="0 0 21.97 21.97">
           <g id="Group_807" data-name="Group 807" transform="translate(-382.426 -246.509)">
             <path id="Path_302" data-name="Path 302"
@@ -55,36 +55,38 @@
       </button>
     </div>
     <div class="filter-store">
-      <button>Paper Lamp</button>
-      <button>Dung Lamp</button>
-      <button>Fancy</button>
+      <button class="bg-button" onclick="dataFilter(1)">men's clothing</button>
+      <button class="bg-button" onclick="dataFilter(2)">jewelery</button>
+      <button class="bg-button" onclick="dataFilter(3)">electronics</button>
     </div>
-    <div class="">
-      <div class="store-cards">
-        <img src="./img/442293.jpg" alt="">
-        <div>
-          <p id="store-card-text-bold">Flower lamp</p>
-          <p id="store-card-text">eco friendly Diwali lamp</p>
-          <p id="store-card-text-bold">50.00$</p>
-        </div>
-      </section>
+    <div class="root">
     </div>
-    <div class="footer-icon">
-      <svg xmlns="http://www.w3.org/2000/svg" width="23.902" height="21.346" viewBox="0 0 23.902 21.346">
-        <path id="Path_309" data-name="Path 309" d="M65.556,868.7H50.346a1.087,1.087,0,0,1-1.086-1.086v-9.778H46l11.22-10.2a1.088,1.088,0,0,1,1.462,0l11.22,10.2H66.642v9.778a1.087,1.087,0,0,1-1.086,1.086Zm-6.519-2.173h5.432V855.832l-6.519-5.925-6.519,5.925v10.694h5.432v-6.519h2.173Z" transform="translate(-46 -847.352)" fill="#2f1738"/>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="22.706" height="23.079" viewBox="0 0 22.706 23.079">
-        <path id="Path_308" data-name="Path 308" d="M149.28,852.817l-3.523-3.522,1.537-1.537,3.522,3.523h16.559a1.086,1.086,0,0,1,1.041,1.4l-2.607,8.692a1.087,1.087,0,0,1-1.041.775H151.453v2.173H163.4v2.173H150.367a1.087,1.087,0,0,1-1.086-1.086Zm2.173.637v6.519H163.96l1.956-6.519Zm-.543,17.383a1.629,1.629,0,1,1,1.153-.477A1.633,1.633,0,0,1,150.91,870.836Zm13.037,0a1.629,1.629,0,1,1,1.153-.477A1.633,1.633,0,0,1,163.947,870.836Z" transform="translate(-145.757 -847.757)" fill="#bcbcbc"/>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="17.383" height="22.428" viewBox="0 0 17.383 22.428">
-        <path id="Path_307" data-name="Path 307" d="M250.086,848H265.3a1.087,1.087,0,0,1,1.086,1.086v20.8a.548.548,0,0,1-.075.276.542.542,0,0,1-.483.267.535.535,0,0,1-.274-.083l-7.859-4.929-7.859,4.928a.546.546,0,0,1-.552.015.54.54,0,0,1-.28-.475v-20.8A1.087,1.087,0,0,1,250.086,848Zm14.124,2.173H251.173v16.766l6.519-4.086,6.519,4.086Z" transform="translate(-249 -848)" fill="#bcbcbc"/>
-      </svg>
-      <svg xmlns="http://www.w3.org/2000/svg" width="21.729" height="20.083" viewBox="0 0 21.729 20.083">
-        <path id="Path_310" data-name="Path 310" d="M366.82,850.909a6.52,6.52,0,0,1,.256,8.948l-9.213,9.226-9.211-9.226a6.519,6.519,0,0,1,9.213-9.2A6.517,6.517,0,0,1,366.82,850.909Zm-16.374,1.537a4.345,4.345,0,0,0-.209,5.922l7.627,7.639,7.627-7.638a4.346,4.346,0,0,0-6.134-6.128l-4.565,4.566-1.537-1.536,3.069-3.071-.089-.075A4.346,4.346,0,0,0,350.446,852.446Z" transform="translate(-347 -849)" fill="#bcbcbc"/>
-      </svg>
-                        
-    </div>
-  </div>
+  </section>
+</div>
+<div class="footer-icon"> 
+  <svg xmlns="http://www.w3.org/2000/svg" width="23.902" height="21.346" viewBox="0 0 23.902 21.346">
+    <path id="Path_309" data-name="Path 309"
+      d="M65.556,868.7H50.346a1.087,1.087,0,0,1-1.086-1.086v-9.778H46l11.22-10.2a1.088,1.088,0,0,1,1.462,0l11.22,10.2H66.642v9.778a1.087,1.087,0,0,1-1.086,1.086Zm-6.519-2.173h5.432V855.832l-6.519-5.925-6.519,5.925v10.694h5.432v-6.519h2.173Z"
+      transform="translate(-46 -847.352)" fill="#2f1738" />
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="22.706" height="23.079" viewBox="0 0 22.706 23.079">
+    <path id="Path_308" data-name="Path 308"
+      d="M149.28,852.817l-3.523-3.522,1.537-1.537,3.522,3.523h16.559a1.086,1.086,0,0,1,1.041,1.4l-2.607,8.692a1.087,1.087,0,0,1-1.041.775H151.453v2.173H163.4v2.173H150.367a1.087,1.087,0,0,1-1.086-1.086Zm2.173.637v6.519H163.96l1.956-6.519Zm-.543,17.383a1.629,1.629,0,1,1,1.153-.477A1.633,1.633,0,0,1,150.91,870.836Zm13.037,0a1.629,1.629,0,1,1,1.153-.477A1.633,1.633,0,0,1,163.947,870.836Z"
+      transform="translate(-145.757 -847.757)" fill="#bcbcbc" />
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="17.383" height="22.428" viewBox="0 0 17.383 22.428">
+    <path id="Path_307" data-name="Path 307"
+      d="M250.086,848H265.3a1.087,1.087,0,0,1,1.086,1.086v20.8a.548.548,0,0,1-.075.276.542.542,0,0,1-.483.267.535.535,0,0,1-.274-.083l-7.859-4.929-7.859,4.928a.546.546,0,0,1-.552.015.54.54,0,0,1-.28-.475v-20.8A1.087,1.087,0,0,1,250.086,848Zm14.124,2.173H251.173v16.766l6.519-4.086,6.519,4.086Z"
+      transform="translate(-249 -848)" fill="#bcbcbc" />
+  </svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="21.729" height="20.083" viewBox="0 0 21.729 20.083">
+    <path id="Path_310" data-name="Path 310"
+      d="M366.82,850.909a6.52,6.52,0,0,1,.256,8.948l-9.213,9.226-9.211-9.226a6.519,6.519,0,0,1,9.213-9.2A6.517,6.517,0,0,1,366.82,850.909Zm-16.374,1.537a4.345,4.345,0,0,0-.209,5.922l7.627,7.639,7.627-7.638a4.346,4.346,0,0,0-6.134-6.128l-4.565,4.566-1.537-1.536,3.069-3.071-.089-.075A4.346,4.346,0,0,0,350.446,852.446Z"
+      transform="translate(-347 -849)" fill="#bcbcbc" />
+  </svg>
+
+</div>
+</div>
 </body>
 
 </html>
